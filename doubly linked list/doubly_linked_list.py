@@ -103,6 +103,25 @@ class DoublyLinkedList:
             cur_node = cur_node.next
         else: # if it is empty
             return
+    
+    def reverse(self):
+        if self.head:
+            cur_node = self.head
+            if cur_node.next is None:
+                return # cur_node
+            else:
+                while cur_node:                    
+                    nxt = cur_node.next
+                    prv = cur_node.prev
+                    cur_node.prev = nxt
+                    cur_node.next = prv
+
+                    if cur_node.prev is None:
+                        self.head = cur_node
+                        return
+                    cur_node = nxt
+        else:
+            return
 
 dllist = DoublyLinkedList()
 dllist.append(1)
@@ -110,33 +129,7 @@ dllist.append(2)
 dllist.append(3)
 dllist.append(4)
 dllist.print_list()
-
-print('---------')
-dllist.delete_node(1)
-dllist.delete_node(6)
-dllist.delete_node(4)
-dllist.delete_node(3)
-print('---------')
+print('-----------')
+dllist.reverse()
 dllist.print_list()
-
-
-
-
-
-
-
-
-
-
-# dllist = DoublyLinkedList()
-# dllist.prepend(0)
-# dllist.append(1)
-# dllist.append(2)
-# dllist.append(3)
-# dllist.append(4)
-# dllist.prepend(5)
-
-# dllist.add_after_node(3,6)
-# dllist.add_before_node(4,9)
-
-# dllist.print_list()
+print('-----------')
