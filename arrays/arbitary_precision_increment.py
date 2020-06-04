@@ -28,7 +28,7 @@ def arbitary_precision_increment_2(A):
         A[i-1] += 1
     if A[0] == 10:
         A[0] = 1
-        A.append(0)
+        A.insert(1, 0) # A.append(0)
     return A
 
 
